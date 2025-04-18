@@ -8,9 +8,6 @@ import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class MovieService implements IMediaService<MovieListDto> {
@@ -32,10 +29,9 @@ public class MovieService implements IMediaService<MovieListDto> {
         }
     }
 
-
     @Override
-    public List<MovieListDto> getTopRatedMedia() {
-        return List.of();
+    public MovieListDto getTopRatedMedia() {
+        return null;
     }
 
     @Override
@@ -44,7 +40,12 @@ public class MovieService implements IMediaService<MovieListDto> {
     }
 
     @Override
-    public List<MovieListDto> getSearchMedia() {
-        return List.of();
+    public MovieListDto getCreditsMedia() {
+        return null;
+    }
+
+    @Override
+    public MovieListDto getSearchMedia() {
+        return null;
     }
 }

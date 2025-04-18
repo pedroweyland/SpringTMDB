@@ -10,11 +10,11 @@ public interface IMediaService<T> {
 
    T getPopularMedia(Integer page, String language);
 
-   List<T> getTopRatedMedia();
-
    T getDetailsMedia();
 
-   //List<CreditDto> getCreditsMedia();
+   T getTopRatedMedia();
 
-   List<T> getSearchMedia();
+   T getCreditsMedia();
+
+   T getSearchMedia();
 }
