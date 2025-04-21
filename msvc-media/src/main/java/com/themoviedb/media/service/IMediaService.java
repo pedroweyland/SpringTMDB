@@ -1,20 +1,15 @@
 package com.themoviedb.media.service;
 
-import com.themoviedb.media.dto.MovieListDto;
-import com.themoviedb.media.exception.PageNotFoundException;
-
-import java.util.List;
-
 public interface IMediaService<T> {
-
 
    T getPopularMedia(Integer page, String language);
 
-   T getDetailsMedia();
+   T getTopRatedMedia(Integer page, String language);
 
-   T getTopRatedMedia();
+   T getComingSoonMedia(Integer page, String language);
 
-   T getCreditsMedia();
+   T getSearchMedia(Integer page, String language, String query);
 
-   T getSearchMedia();
+   T getNowPlayingMedia(Integer page, String language);
+
 }

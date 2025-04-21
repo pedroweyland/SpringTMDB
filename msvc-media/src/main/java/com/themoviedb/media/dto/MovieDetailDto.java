@@ -2,10 +2,7 @@ package com.themoviedb.media.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.themoviedb.media.dto.details.GenreDto;
-import com.themoviedb.media.dto.details.ProductionCompaniesDto;
-import com.themoviedb.media.dto.details.ProductionCountriesDto;
-import com.themoviedb.media.dto.details.SpokenLanguagesDto;
+import com.themoviedb.media.dto.details.*;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -40,7 +37,7 @@ public class MovieDetailDto {
     private String backdropPath;
 
     @JsonProperty("belongs_to_collection")
-    private String belongsToCollection;
+    private BelongsToCollection belongsToCollection;
 
     @JsonProperty("imdb_id")
     private String imdbId;

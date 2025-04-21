@@ -1,8 +1,10 @@
 package com.themoviedb.media.presentation.controllers;
 
+import com.themoviedb.media.dto.CreditsDto;
+import com.themoviedb.media.dto.MovieDetailDto;
 import com.themoviedb.media.dto.MovieListDto;
-import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.MovieService;
+import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,26 +24,56 @@ public class MovieController implements IMediaController<MovieListDto> {
         return ResponseEntity.ok(movieService.getPopularMedia(page, language));
     }
 
-    @Override
     @GetMapping("/details/{idMovie}")
-    public ResponseEntity<MovieListDto> getDetailsMedia(
-        @PathVariable Integer idMovie,
-        @RequestParam(defaultValue = "en") String language) {
-        return null;
+    public ResponseEntity<MovieDetailDto> getDetailsMedia(
+            @PathVariable Integer idMovie,
+            @RequestParam(defaultValue = "en") String language) {
+        return ResponseEntity.ok(movieService.getDetailsMovie(idMovie, language));
     }
 
     @Override
-    public ResponseEntity<MovieListDto> getTopRatedMedia() {
-        return null;
+    @GetMapping("/top_rated")
+    public ResponseEntity<MovieListDto> getTopRatedMedia(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "en") String language) {
+        return ResponseEntity.ok(movieService.getTopRatedMedia(page, language));
     }
 
     @Override
-    public ResponseEntity<MovieListDto> getSearchMedia() {
-        return null;
+    @GetMapping("/upcoming")
+    public ResponseEntity<MovieListDto> getComingSoonMedia(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "en") String language
+    ) {
+        return ResponseEntity.ok(movieService.getComingSoonMedia(page, language));
     }
 
     @Override
-    public ResponseEntity<MovieListDto> getCreditsMedia() {
-        return null;
+    @GetMapping("/search")
+    public ResponseEntity<MovieListDto> getSearchMedia(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "en") String language,
+            @RequestParam(defaultValue = "") String query
+    ) {
+        return ResponseEntity.ok(movieService.getSearchMedia(page, language, query));
     }
+
+    @Override
+    @GetMapping("/now_playing")
+    public ResponseEntity<MovieListDto> getNowPlayingMedia(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "en") String language
+    ) {
+        return ResponseEntity.ok(movieService.getNowPlayingMedia(page, language));
+    }
+
+    @GetMapping("/{idMovie}/credits")
+    public ResponseEntity<CreditsDto> getCreditsMovie(
+            @PathVariable Integer idMovie,
+            @RequestParam(defaultValue = "en") String language
+    ) {
+        return ResponseEntity.ok(movieService.getCreditsMovie(idMovie, language));
+    }
+
 }
+
