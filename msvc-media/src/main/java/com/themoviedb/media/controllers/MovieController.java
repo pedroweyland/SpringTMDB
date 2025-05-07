@@ -1,10 +1,9 @@
-package com.themoviedb.media.presentation.controllers;
+package com.themoviedb.media.controllers;
 
 import com.themoviedb.media.dto.CreditsDto;
 import com.themoviedb.media.dto.MovieDetailDto;
 import com.themoviedb.media.dto.MovieListDto;
 import com.themoviedb.media.service.MovieService;
-import feign.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +21,6 @@ public class MovieController implements IMediaController<MovieListDto> {
             @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "en") String language) {
         return ResponseEntity.ok(movieService.getPopularMedia(page, language));
-    }
-
-    @GetMapping("/details/{idMovie}")
-    public ResponseEntity<MovieDetailDto> getDetailsMedia(
-            @PathVariable Integer idMovie,
-            @RequestParam(defaultValue = "en") String language) {
-        return ResponseEntity.ok(movieService.getDetailsMovie(idMovie, language));
     }
 
     @Override
@@ -65,6 +57,13 @@ public class MovieController implements IMediaController<MovieListDto> {
             @RequestParam(defaultValue = "en") String language
     ) {
         return ResponseEntity.ok(movieService.getNowPlayingMedia(page, language));
+    }
+
+    @GetMapping("/details/{idMovie}")
+    public ResponseEntity<MovieDetailDto> getDetailsMedia(
+            @PathVariable Integer idMovie,
+            @RequestParam(defaultValue = "en") String language) {
+        return ResponseEntity.ok(movieService.getDetailsMovie(idMovie, language));
     }
 
     @GetMapping("/{idMovie}/credits")

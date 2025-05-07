@@ -3,12 +3,15 @@ package com.themoviedb.media.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.themoviedb.media.dto.details.*;
+import com.themoviedb.media.dto.details.movies.BelongsToCollection;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@Builder
 public class MovieDetailDto {
 
     private Integer id;

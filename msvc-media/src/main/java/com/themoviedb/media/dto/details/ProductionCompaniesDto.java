@@ -7,7 +7,6 @@ import lombok.Data;
 public class ProductionCompaniesDto {
 
     private Integer id;
-
     private String name;
 
     @JsonProperty("logo_path")

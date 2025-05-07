@@ -1,4 +1,4 @@
-package com.themoviedb.media.presentation.controllers.handler;
+package com.themoviedb.media.controllers.handler;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

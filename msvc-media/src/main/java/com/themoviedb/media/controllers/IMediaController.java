@@ -1,4 +1,4 @@
-package com.themoviedb.media.presentation.controllers;
+package com.themoviedb.media.controllers;
 
 import org.springframework.http.ResponseEntity;
 

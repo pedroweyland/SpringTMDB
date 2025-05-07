@@ -1,4 +1,4 @@
-package com.themoviedb.media.presentation.controllers.handler;
+package com.themoviedb.media.controllers.handler;
 
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.exception.PageNotFoundException;

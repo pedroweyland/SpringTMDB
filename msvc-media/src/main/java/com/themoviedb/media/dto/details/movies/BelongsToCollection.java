@@ -1,4 +1,4 @@
-package com.themoviedb.media.dto.details;
+package com.themoviedb.media.dto.details.movies;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
