@@ -15,9 +15,6 @@ public interface MovieFeignClient {
     @GetMapping(value = "/movie/popular")
     MovieListDto getPopularMovie(@RequestParam Integer page, @RequestParam String language);
 
-    @GetMapping(value = "/movie/{idMovie}")
-    MovieDetailDto getDetailsMovie(@PathVariable Integer idMovie, @RequestParam String language);
-
     @GetMapping(value = "/movie/top_rated")
     MovieListDto getTopRatedMovie(@RequestParam Integer page, @RequestParam String language);
 
@@ -29,6 +26,9 @@ public interface MovieFeignClient {
 
     @GetMapping(value = "/movie/now_playing")
     MovieListDto getNowPlayingMovie(@RequestParam Integer page, @RequestParam String language);
+
+    @GetMapping(value = "/movie/{idMovie}")
+    MovieDetailDto getDetailsMovie(@PathVariable Integer idMovie, @RequestParam String language);
 
     @GetMapping(value = "/movie/{idMovie}/credits")
     CreditsDto getCreditsMovie(@PathVariable Integer idMovie, @RequestParam String language);
