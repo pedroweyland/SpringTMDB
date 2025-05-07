@@ -5,7 +5,6 @@ import com.themoviedb.media.dto.CreditsDto;
 import com.themoviedb.media.dto.MovieDetailDto;
 import com.themoviedb.media.dto.MovieListDto;
 import com.themoviedb.media.exception.MediaNotFoundException;
-import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.utils.AbstractMediaService;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
@@ -24,10 +23,10 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         return executeWithHandling(
                 () -> {
                     MovieListDto movieList = movieFeign.getPopularMovie(page, language.toLowerCase());
-                    validatePageContent(movieList, page, null);
+                    validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
-                "Page not found: " + page
+                page
         );
     }
 
@@ -38,10 +37,10 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         return executeWithHandling(
                 () -> {
                     MovieListDto movieList = movieFeign.getTopRatedMovie(page, language.toLowerCase());
-                    validatePageContent(movieList, page, null);
+                    validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
-                "Page not found: " + page
+                page
         );
     }
 
@@ -52,10 +51,10 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         return executeWithHandling(
                 () -> {
                     MovieListDto movieList = movieFeign.getComingSoonMovie(page, language.toLowerCase());
-                    validatePageContent(movieList, page, null);
+                    validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
-                "Page not found: " + page
+                page
         ) ;
     }
 
@@ -66,10 +65,10 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         return executeWithHandling(
                 () -> {
                     MovieListDto movieList = movieFeign.getSearchMovie(page, language.toLowerCase(), query);
-                    validatePageContent(movieList, page, query);
+                    validateSearchQuery(movieList.getResults().isEmpty(), query);
                     return movieList;
                 },
-                "Page not found: " + page
+                page
         );
     }
 
@@ -80,10 +79,10 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         return executeWithHandling(
                 () -> {
                     MovieListDto movieList = movieFeign.getNowPlayingMovie(page, language.toLowerCase());
-                    validatePageContent(movieList, page, null);
+                    validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
-                "Page not found: " + page
+                page
         );
     }
 
@@ -112,16 +111,4 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
             throw new RuntimeException("Something went wrong while fetching popular movies: " + e.getMessage());
         }
     }
-
-    private void validatePageContent(MovieListDto movieList, Integer page, String query) {
-
-        if (movieList.getTotalPages() < page) {
-            throw new PageNotFoundException("Page not found: " + page);
-        }
-
-        if (movieList.getResults().isEmpty()) {
-            throw new IllegalArgumentException("No results found" + (query != null ? " for query: " + query : ""));
-        }
-    }
-
 }
