@@ -23,7 +23,6 @@
     <module>msvc-config</module>
     <module>msvc-media</module>
     <module>msvc-users</module>
-    <module>msvc-people</module>
   </modules>
 
   <properties>

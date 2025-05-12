@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="msvc-users" />
         <module name="msvc-config" />
-        <module name="msvc-people" />
         <module name="msvc-media" />
         <module name="msvc-gateway" />
         <module name="msvc-eureka" />
@@ -20,6 +19,7 @@
       <module name="eureka" target="21" />
       <module name="gateway" target="21" />
       <module name="media" target="21" />
+      <module name="msvc-people" target="21" />
       <module name="tmdb-config" target="21" />
       <module name="tmdb-eureka" target="21" />
       <module name="tmdb-gateway" target="21" />

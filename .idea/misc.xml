@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/media/pom.xml" />
+        <option value="$PROJECT_DIR$/msvc-people/pom.xml" />
         <option value="$PROJECT_DIR$/tmdb-config/pom.xml" />
       </set>
     </option>
