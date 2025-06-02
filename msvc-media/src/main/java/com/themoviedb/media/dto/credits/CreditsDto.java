@@ -1,7 +1,5 @@
-package com.themoviedb.media.dto;
+package com.themoviedb.media.dto.credits;
 
-import com.themoviedb.media.dto.credits.CastDto;
-import com.themoviedb.media.dto.credits.CrewDto;
 import lombok.Builder;
 import lombok.Data;
 

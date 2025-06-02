@@ -1,4 +1,4 @@
-package com.themoviedb.media.dto;
+package com.themoviedb.media.dto.people;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -8,10 +8,10 @@ import java.util.List;
 
 @Data
 @Builder
-public class SerieListDto {
+public class PeopleListDto {
 
     private Integer page;
-    private List<SerieDto> results;
+    private List<PersonDto> results;
 
     @JsonProperty("total_pages")
     private Integer totalPages;

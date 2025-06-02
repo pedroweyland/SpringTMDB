@@ -1,9 +1,9 @@
 package com.themoviedb.media.service;
 
 import com.themoviedb.media.client.MovieFeignClient;
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.MovieDetailDto;
-import com.themoviedb.media.dto.MovieListDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.movie.MovieDetailDto;
+import com.themoviedb.media.dto.movie.MovieListDto;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.utils.AbstractMediaService;
 import feign.FeignException;
@@ -22,7 +22,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
 
         return executeWithHandling(
                 () -> {
-                    MovieListDto movieList = movieFeign.getPopularMovie(page, language.toLowerCase());
+                    MovieListDto movieList = movieFeign.getPopularMovieFetch(page, language.toLowerCase());
                     validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
@@ -36,7 +36,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
 
         return executeWithHandling(
                 () -> {
-                    MovieListDto movieList = movieFeign.getTopRatedMovie(page, language.toLowerCase());
+                    MovieListDto movieList = movieFeign.getTopRatedMovieFetch(page, language.toLowerCase());
                     validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
@@ -50,7 +50,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
 
         return executeWithHandling(
                 () -> {
-                    MovieListDto movieList = movieFeign.getComingSoonMovie(page, language.toLowerCase());
+                    MovieListDto movieList = movieFeign.getComingSoonMovieFetch(page, language.toLowerCase());
                     validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
@@ -64,7 +64,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
 
         return executeWithHandling(
                 () -> {
-                    MovieListDto movieList = movieFeign.getSearchMovie(page, language.toLowerCase(), query);
+                    MovieListDto movieList = movieFeign.getSearchMovieFetch(page, language.toLowerCase(), query);
                     validateSearchQuery(movieList.getResults().isEmpty(), query);
                     return movieList;
                 },
@@ -78,7 +78,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
 
         return executeWithHandling(
                 () -> {
-                    MovieListDto movieList = movieFeign.getNowPlayingMovie(page, language.toLowerCase());
+                    MovieListDto movieList = movieFeign.getNowPlayingMovieFetch(page, language.toLowerCase());
                     validatePageContent(movieList.getTotalPages(), page);
                     return movieList;
                 },
@@ -90,7 +90,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         try {
             validateLanguage(language);
 
-            return movieFeign.getDetailsMovie(idMovie, language.toLowerCase());
+            return movieFeign.getDetailsMovieFetch(idMovie, language.toLowerCase());
         } catch (FeignException e) {
             if (e.status() == 404) {
                 throw new MediaNotFoundException("Movie not found: " + idMovie);
@@ -103,7 +103,7 @@ public class MovieService extends AbstractMediaService<MovieListDto> implements 
         try {
             validateLanguage(language);
 
-            return movieFeign.getCreditsMovie(idMovie, language.toLowerCase());
+            return movieFeign.getCreditsMovieFetch(idMovie, language.toLowerCase());
         } catch (FeignException e) {
             if (e.status() == 404) {
                 throw new MediaNotFoundException("Movie not found: " + idMovie);

@@ -1,15 +1,19 @@
-package com.themoviedb.media.dto;
+package com.themoviedb.media.dto.movie;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Builder
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MovieDto {
 
     private Integer id;
@@ -23,7 +27,7 @@ public class MovieDto {
     private String backdropPath;
 
     @JsonProperty("genre_ids")
-    private List<Long> genreIds;
+    private List<Integer> genreIds;
 
     @JsonProperty("original_language")
     private String originalLanguage;

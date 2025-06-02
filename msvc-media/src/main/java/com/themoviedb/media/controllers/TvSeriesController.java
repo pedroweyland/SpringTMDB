@@ -1,8 +1,9 @@
 package com.themoviedb.media.controllers;
 
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.SerieDetailDto;
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.serie.SerieDetailDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
+import com.themoviedb.media.service.IMediaService;
 import com.themoviedb.media.service.TvSeriesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,24 +12,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/media/tv")
 @RequiredArgsConstructor
-public class TvSeriesController implements IMediaController<SerieListDto>{
+public class TvSeriesController extends BaseMediaController<SerieListDto> {
 
     private final TvSeriesService tvSeriesService;
 
-    @Override
-    @GetMapping("/popular")
-    public ResponseEntity<SerieListDto> getPopularMedia(
-            @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "en") String language) {
-        return ResponseEntity.ok(tvSeriesService.getPopularMedia(page, language));
-    }
 
     @Override
-    @GetMapping("/top_rated")
-    public ResponseEntity<SerieListDto> getTopRatedMedia(
-            @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "en") String language) {
-        return ResponseEntity.ok(tvSeriesService.getTopRatedMedia(page, language));
+    protected IMediaService<SerieListDto> getService() {
+        return tvSeriesService;
     }
 
     @Override
@@ -37,15 +28,6 @@ public class TvSeriesController implements IMediaController<SerieListDto>{
             @RequestParam(defaultValue = "1") Integer page,
             @RequestParam(defaultValue = "en") String language) {
         return ResponseEntity.ok(tvSeriesService.getComingSoonMedia(page, language));
-    }
-
-    @Override
-    @GetMapping("/search")
-    public ResponseEntity<SerieListDto> getSearchMedia(
-            @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "en") String language,
-            @RequestParam(defaultValue = "") String query) {
-        return ResponseEntity.ok(tvSeriesService.getSearchMedia(page, language, query));
     }
 
     @Override

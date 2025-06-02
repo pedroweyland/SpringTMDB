@@ -1,25 +1,31 @@
-package com.themoviedb.media.dto;
+package com.themoviedb.media.dto.serie;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Builder
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SerieDto {
 
     private Integer id;
     private String name;
     private String overview;
     private Double popularity;
+    private Boolean adult;
 
     @JsonProperty("backdrop_path")
     private String backdropPath;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @JsonProperty("first_air_date")
-    private String firstAirDate;
+    private LocalDate firstAirDate;
 
     @JsonProperty("genre_ids")
     private List<Integer> genreIds;

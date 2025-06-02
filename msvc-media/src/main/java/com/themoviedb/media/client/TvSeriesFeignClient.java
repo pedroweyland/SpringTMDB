@@ -1,9 +1,9 @@
 package com.themoviedb.media.client;
 
 import com.themoviedb.media.client.config.FeignClientConfig;
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.SerieDetailDto;
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.serie.SerieDetailDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface TvSeriesFeignClient {
 
     @GetMapping(value = "/tv/popular")
-    SerieListDto getPopularSeries(@RequestParam Integer page, @RequestParam String language);
+    SerieListDto getPopularSeriesFetch(@RequestParam Integer page, @RequestParam String language);
 
     @GetMapping(value = "/tv/top_rated")
-    SerieListDto getTopRatedSeries(@RequestParam Integer page, @RequestParam String language);
+    SerieListDto getTopRatedSeriesFetch(@RequestParam Integer page, @RequestParam String language);
 
     @GetMapping(value = "/tv/on_the_air")
-    SerieListDto getOnTheAirSeries(@RequestParam Integer page, @RequestParam String language);
+    SerieListDto getOnTheAirSeriesFetch(@RequestParam Integer page, @RequestParam String language);
 
     @GetMapping(value = "/tv/airing_today")
-    SerieListDto getAiringTodaySeries(@RequestParam Integer page, @RequestParam String language);
+    SerieListDto getAiringTodaySeriesFetch(@RequestParam Integer page, @RequestParam String language);
 
     @GetMapping(value = "/search/tv")
-    SerieListDto getSearchSeries(@RequestParam Integer page, @RequestParam String language, @RequestParam String query);
+    SerieListDto getSearchSeriesFetch(@RequestParam Integer page, @RequestParam String language, @RequestParam String query);
 
     @GetMapping(value = "/tv/{idSerie}")
-    SerieDetailDto getDetailsSeries(@PathVariable Integer idSerie, @RequestParam String language);
+    SerieDetailDto getDetailsSeriesFetch(@PathVariable Integer idSerie, @RequestParam String language);
 
     @GetMapping(value = "/tv/{idSerie}/credits")
-    CreditsDto getCreditsSeries(@PathVariable Integer idSerie, @RequestParam String language);
+    CreditsDto getCreditsSeriesFetch(@PathVariable Integer idSerie, @RequestParam String language);
 }

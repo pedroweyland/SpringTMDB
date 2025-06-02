@@ -1,0 +1,75 @@
+package com.themoviedb.media.service;
+
+import com.themoviedb.media.client.PeopleFeignClient;
+import com.themoviedb.media.dto.people.credits.CreditsPeopleDto;
+import com.themoviedb.media.dto.people.PeopleListDto;
+import com.themoviedb.media.dto.people.PersonDetailDto;
+import com.themoviedb.media.exception.PageNotFoundException;
+import com.themoviedb.media.exception.PersonNotFoundException;
+import com.themoviedb.media.service.utils.AbstractMediaService;
+import feign.FeignException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class PeopleService extends AbstractMediaService {
+
+    private final PeopleFeignClient peopleFeignClient;
+
+    public PeopleListDto getPopularPeople(Integer page, String language) {
+        try {
+            validateLanguage(language);
+
+            PeopleListDto response = peopleFeignClient.getPopularPeopleFetch(page, language.toLowerCase());
+
+            validatePageContent(response.getTotalPages(), page);
+
+            return response;
+        } catch (FeignException e) {
+            if (e.status() == 400) {
+                throw new PageNotFoundException("Page not found: " + page);
+            }
+            throw new RuntimeException("Something went wrong while fetching popular movies: " + e.getMessage());
+        }
+    }
+
+    public PersonDetailDto getPersonDetail(String language, Integer idPerson) {
+        try {
+            validateLanguage(language);
+
+            return peopleFeignClient.getPersonDetailFetch(idPerson, language.toLowerCase());
+        } catch (FeignException e) {
+            if (e.status() == 404) {
+                throw new PersonNotFoundException("Person not found: " + idPerson);
+            }
+            throw new RuntimeException("Something went wrong while fetching popular movies: " + e.getMessage());
+        }
+    }
+
+    public CreditsPeopleDto getCreditsPersonMovie(String language, Integer idPerson) {
+        try {
+            validateLanguage(language);
+
+            return peopleFeignClient.getCreditsPersonMovieFetch(idPerson, language.toLowerCase());
+        } catch (FeignException e) {
+            if (e.status() == 404) {
+                throw new PersonNotFoundException("Person not found: " + idPerson);
+            }
+            throw new RuntimeException("Something went wrong while fetching popular movies: " + e.getMessage());
+        }
+    }
+
+    public CreditsPeopleDto getCreditsPersonTvShow(String language, Integer idPerson) {
+        try {
+            validateLanguage(language);
+
+            return peopleFeignClient.getCreditsPersonTvShowFetch(idPerson, language.toLowerCase());
+        } catch (FeignException e) {
+            if (e.status() == 404) {
+                throw new PersonNotFoundException("Person not found: " + idPerson);
+            }
+            throw new RuntimeException("Something went wrong while fetching popular movies: " + e.getMessage());
+        }
+    }
+}

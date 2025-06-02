@@ -28,9 +28,7 @@ public abstract class AbstractMediaService<T> {
         try {
             return action.get();
         } catch (FeignException e) {
-            System.out.println(e.getMessage());
-            System.out.println("--------");
-            System.out.println(e.status());
+
             if (e.status() == 400) {
                 throw new PageNotFoundException("Page not found: " + page);
             }

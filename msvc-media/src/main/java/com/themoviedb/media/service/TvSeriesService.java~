@@ -1,9 +1,9 @@
 package com.themoviedb.media.service;
 
 import com.themoviedb.media.client.TvSeriesFeignClient;
-import com.themoviedb.media.dto.credits.CreditsDto;
-import com.themoviedb.media.dto.serie.SerieDetailDto;
-import com.themoviedb.media.dto.serie.SerieListDto;
+import com.themoviedb.media.dto.CreditsDto;
+import com.themoviedb.media.dto.SerieDetailDto;
+import com.themoviedb.media.dto.SerieListDto;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.utils.AbstractMediaService;
 import feign.FeignException;
