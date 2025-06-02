@@ -1,9 +1,10 @@
 package com.themoviedb.media.service.serie;
 
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.BaseSerieService;
+import feign.FeignException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,12 +18,12 @@ public class GetTopRatedSerieTest extends BaseSerieService {
         int page = 1;
         String language = "es";
 
-        when(tvSeriesFeignClient.getTopRatedSeries(page, language)).thenReturn(serieList);
+        when(tvSeriesFeignClient.getTopRatedSeriesFetch(page, language)).thenReturn(serieList);
 
         SerieListDto response = tvSerieService.getTopRatedMedia(page, language);
 
         assertEquals(response, serieList);
-        verify(tvSeriesFeignClient, times(1)).getTopRatedSeries(page, language);
+        verify(tvSeriesFeignClient, times(1)).getTopRatedSeriesFetch(page, language);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class GetTopRatedSerieTest extends BaseSerieService {
         int page = 10;
         String language = "es";
 
-        when(tvSeriesFeignClient.getTopRatedSeries(page, language)).thenReturn(serieList);
+        when(tvSeriesFeignClient.getTopRatedSeriesFetch(page, language)).thenReturn(serieList);
 
         assertThrows(PageNotFoundException.class, () -> tvSerieService.getTopRatedMedia(page, language));
     }
@@ -48,8 +49,24 @@ public class GetTopRatedSerieTest extends BaseSerieService {
         int page = 1;
         String language = "es";
 
-        when(tvSeriesFeignClient.getTopRatedSeries(page, language)).thenThrow(new RuntimeException("Error"));
+        when(tvSeriesFeignClient.getTopRatedSeriesFetch(page, language)).thenThrow(new RuntimeException("Error"));
 
         assertThrows(RuntimeException.class, () -> tvSerieService.getTopRatedMedia(page, language));
+    }
+
+    @Test
+    public void getTopRatedSeriePageNotFoundError() {
+        int page = 999;
+        String language = "en";
+
+        FeignException notFoundException = mock(FeignException.class);
+        when(notFoundException.status()).thenReturn(400);
+
+        when(tvSeriesFeignClient.getTopRatedSeriesFetch(page, language)).thenThrow(notFoundException);
+
+        PageNotFoundException exception = assertThrows(
+                PageNotFoundException.class, () -> tvSerieService.getTopRatedMedia(page, language));
+
+        assertEquals("Page not found: " + page, exception.getMessage());
     }
 }

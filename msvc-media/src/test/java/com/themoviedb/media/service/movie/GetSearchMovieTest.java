@@ -1,8 +1,10 @@
 package com.themoviedb.media.service.movie;
 
-import com.themoviedb.media.dto.MovieListDto;
+import com.themoviedb.media.dto.movie.MovieListDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
+import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.BaseMovieService;
+import feign.FeignException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,12 +21,12 @@ public class GetSearchMovieTest extends BaseMovieService {
         int page = 1;
         String language = "es";
 
-        when(movieFeignClient.getSearchMovie(page, language, query)).thenReturn(movieList);
+        when(movieFeignClient.getSearchMovieFetch(page, language, query)).thenReturn(movieList);
 
         MovieListDto response = movieService.getSearchMedia(page, language, query);
 
         assertEquals(movieList, response);
-        verify(movieFeignClient, times(1)).getSearchMovie(page, language, query);
+        verify(movieFeignClient, times(1)).getSearchMovieFetch(page, language, query);
     }
 
     @Test
@@ -40,7 +42,7 @@ public class GetSearchMovieTest extends BaseMovieService {
                 .totalResults(0)
                 .build();
 
-        when(movieFeignClient.getSearchMovie(page, language, query)).thenReturn(movieListResponse);
+        when(movieFeignClient.getSearchMovieFetch(page, language, query)).thenReturn(movieListResponse);
 
         assertThrows(IllegalArgumentException.class, () -> movieService.getSearchMedia(page, language, query));
     }
@@ -60,8 +62,24 @@ public class GetSearchMovieTest extends BaseMovieService {
         int page = 1;
         String language = "es";
 
-        when(movieFeignClient.getSearchMovie(page, language, query)).thenThrow(new RuntimeException("Error"));
+        when(movieFeignClient.getSearchMovieFetch(page, language, query)).thenThrow(new RuntimeException("Error"));
 
         assertThrows(RuntimeException.class, () -> movieService.getSearchMedia(page, language, query));
+    }
+
+    @Test
+    public void testGetSearchMoviePageNotFoundError() {
+        int page = 999;
+        String language = "es";
+
+        FeignException notFoundException = mock(FeignException.class);
+        when(notFoundException.status()).thenReturn(400);
+
+        when(movieFeignClient.getSearchMovieFetch(page, language, "")).thenThrow(notFoundException);
+
+        PageNotFoundException exception = assertThrows(
+                PageNotFoundException.class, () -> movieService.getSearchMedia(page, language, ""));
+
+        assertEquals("Page not found: " + page, exception.getMessage());
     }
 }

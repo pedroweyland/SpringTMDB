@@ -1,6 +1,6 @@
 package com.themoviedb.media.service.movie;
 
-import com.themoviedb.media.dto.MovieDetailDto;
+import com.themoviedb.media.dto.movie.MovieDetailDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.BaseMovieService;
@@ -18,12 +18,12 @@ public class GetDetailsMovieTest extends BaseMovieService {
         String language = "es";
         MovieDetailDto movieDetailDto = getMovieDetailDto();
 
-        when(movieFeignClient.getDetailsMovie(idMovie, language)).thenReturn(movieDetailDto);
+        when(movieFeignClient.getDetailsMovieFetch(idMovie, language)).thenReturn(movieDetailDto);
 
         MovieDetailDto response = movieService.getDetailsMovie(idMovie, language);
 
         assertEquals(movieDetailDto, response);
-        verify(movieFeignClient, times(1)).getDetailsMovie(idMovie, language);
+        verify(movieFeignClient, times(1)).getDetailsMovieFetch(idMovie, language);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class GetDetailsMovieTest extends BaseMovieService {
         FeignException notFoundException = mock(FeignException.class);
         when(notFoundException.status()).thenReturn(404);
 
-        when(movieFeignClient.getDetailsMovie(idMovie, language)).thenThrow(notFoundException);
+        when(movieFeignClient.getDetailsMovieFetch(idMovie, language)).thenThrow(notFoundException);
 
         MediaNotFoundException exception = assertThrows(MediaNotFoundException.class,
                 () -> movieService.getDetailsMovie(idMovie, language));
@@ -60,7 +60,7 @@ public class GetDetailsMovieTest extends BaseMovieService {
         when(serverException.status()).thenReturn(500);
         when(serverException.getMessage()).thenReturn("Server error");
 
-        when(movieFeignClient.getDetailsMovie(idMovie, language)).thenThrow(serverException);
+        when(movieFeignClient.getDetailsMovieFetch(idMovie, language)).thenThrow(serverException);
 
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> movieService.getDetailsMovie(idMovie, language));

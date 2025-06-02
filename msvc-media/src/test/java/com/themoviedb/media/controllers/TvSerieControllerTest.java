@@ -1,9 +1,10 @@
 package com.themoviedb.media.controllers;
 
 
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.SerieDetailDto;
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.BaseSerie;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.serie.SerieDetailDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
 import com.themoviedb.media.service.TvSeriesService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,13 +16,12 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import static com.themoviedb.media.controllers.BaseMovieController.getCreditsDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TvSerieControllerTest extends BaseSerieController {
+public class TvSerieControllerTest extends BaseSerie {
 
     @Mock
     private TvSeriesService tvSeriesService;
@@ -115,7 +115,7 @@ public class TvSerieControllerTest extends BaseSerieController {
 
     @Test
     public void getCreditsSerieSuccess() {
-        CreditsDto creditsDto = getCreditsDto();
+        CreditsDto creditsDto = getSerieCreditsDto();
 
         when(tvSeriesService.getCreditsSerie(1, "es")).thenReturn(creditsDto);
 

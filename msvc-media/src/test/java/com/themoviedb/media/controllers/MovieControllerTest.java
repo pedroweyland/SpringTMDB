@@ -1,8 +1,9 @@
 package com.themoviedb.media.controllers;
 
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.MovieDetailDto;
-import com.themoviedb.media.dto.MovieListDto;
+import com.themoviedb.media.BaseMovie;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.movie.MovieDetailDto;
+import com.themoviedb.media.dto.movie.MovieListDto;
 import com.themoviedb.media.service.MovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class MovieControllerTest extends BaseMovieController  {
+public class MovieControllerTest extends BaseMovie {
 
     @Mock
     private MovieService movieService;

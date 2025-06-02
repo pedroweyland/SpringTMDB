@@ -1,9 +1,10 @@
 package com.themoviedb.media.service.serie;
 
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.BaseSerieService;
+import feign.FeignException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,12 +19,12 @@ public class GetPopularSerieTest extends BaseSerieService {
         int page = 1;
         String language = "es";
 
-        when(tvSeriesFeignClient.getPopularSeries(page, language)).thenReturn(serieList);
+        when(tvSeriesFeignClient.getPopularSeriesFetch(page, language)).thenReturn(serieList);
 
         SerieListDto response = tvSerieService.getPopularMedia(page, language);
 
         assertEquals(response, serieList);
-        verify(tvSeriesFeignClient, times(1)).getPopularSeries(page, language);
+        verify(tvSeriesFeignClient, times(1)).getPopularSeriesFetch(page, language);
     }
 
     @Test
@@ -31,7 +32,7 @@ public class GetPopularSerieTest extends BaseSerieService {
         int page = 10;
         String language = "es";
 
-        when(tvSeriesFeignClient.getPopularSeries(page, language)).thenReturn(serieList);
+        when(tvSeriesFeignClient.getPopularSeriesFetch(page, language)).thenReturn(serieList);
 
         assertThrows(PageNotFoundException.class, () -> tvSerieService.getPopularMedia(page, language));
     }
@@ -49,8 +50,24 @@ public class GetPopularSerieTest extends BaseSerieService {
         int page = 1;
         String language = "es";
 
-        when(tvSeriesFeignClient.getPopularSeries(page, language)).thenThrow(new RuntimeException("Error"));
+        when(tvSeriesFeignClient.getPopularSeriesFetch(page, language)).thenThrow(new RuntimeException("Error"));
 
         assertThrows(RuntimeException.class, () -> tvSerieService.getPopularMedia(page, language));
+    }
+
+    @Test
+    public void testGetPopularSeriePageNotFoundError() {
+        int page = 999;
+        String language = "en";
+
+        FeignException notFoundException = mock(FeignException.class);
+        when(notFoundException.status()).thenReturn(400);
+
+        when(tvSeriesFeignClient.getPopularSeriesFetch(page, language)).thenThrow(notFoundException);
+
+        PageNotFoundException exception = assertThrows(
+                PageNotFoundException.class, () -> tvSerieService.getPopularMedia(page, language));
+
+        assertEquals("Page not found: " + page, exception.getMessage());
     }
 }

@@ -1,9 +1,10 @@
 package com.themoviedb.media.service.movie;
 
-import com.themoviedb.media.dto.MovieListDto;
+import com.themoviedb.media.dto.movie.MovieListDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.PageNotFoundException;
 import com.themoviedb.media.service.BaseMovieService;
+import feign.FeignException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,13 +18,12 @@ public class GetComingSoonMovieTest extends BaseMovieService {
         int page = 1;
         String language = "es";
 
-        when(movieFeignClient.getComingSoonMovie(page, language)).thenReturn(movieList);
+        when(movieFeignClient.getComingSoonMovieFetch(page, language)).thenReturn(movieList);
 
         MovieListDto response = movieService.getComingSoonMedia(page, language);
 
         assertEquals(movieList, response);
-        verify(movieFeignClient, times(1)).getComingSoonMovie(page, language);
-
+        verify(movieFeignClient, times(1)).getComingSoonMovieFetch(page, language);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class GetComingSoonMovieTest extends BaseMovieService {
         int page = 10;
         String language = "es";
 
-        when(movieFeignClient.getComingSoonMovie(page, language)).thenReturn(movieList);
+        when(movieFeignClient.getComingSoonMovieFetch(page, language)).thenReturn(movieList);
 
         assertThrows(PageNotFoundException.class, () -> movieService.getComingSoonMedia(page, language));
     }
@@ -49,8 +49,24 @@ public class GetComingSoonMovieTest extends BaseMovieService {
         int page = 1;
         String language = "es";
 
-        when(movieFeignClient.getComingSoonMovie(page, language)).thenThrow(new RuntimeException("Error"));
+        when(movieFeignClient.getComingSoonMovieFetch(page, language)).thenThrow(new RuntimeException("Error"));
 
         assertThrows(RuntimeException.class, () -> movieService.getComingSoonMedia(page, language));
+    }
+
+    @Test
+    public void testGetComingSoonMoviePageNotFoundError() {
+        int page = 999;
+        String language = "en";
+
+        FeignException notFoundException = mock(FeignException.class);
+        when(notFoundException.status()).thenReturn(400);
+
+        when(movieFeignClient.getComingSoonMovieFetch(page, language)).thenThrow(notFoundException);
+
+        PageNotFoundException exception = assertThrows(
+                PageNotFoundException.class, () -> movieService.getComingSoonMedia(page, language));
+
+        assertEquals("Page not found: " + page, exception.getMessage());
     }
 }

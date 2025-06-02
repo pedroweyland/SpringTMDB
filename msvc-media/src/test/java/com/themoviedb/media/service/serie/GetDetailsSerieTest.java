@@ -1,6 +1,6 @@
 package com.themoviedb.media.service.serie;
 
-import com.themoviedb.media.dto.SerieDetailDto;
+import com.themoviedb.media.dto.serie.SerieDetailDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.BaseSerieService;
@@ -18,12 +18,12 @@ public class GetDetailsSerieTest extends BaseSerieService {
         String language = "es";
         SerieDetailDto serieDetailDto = getSerieDetailDto();
 
-        when(tvSeriesFeignClient.getDetailsSeries(idSerie, language)).thenReturn(serieDetailDto);
+        when(tvSeriesFeignClient.getDetailsSeriesFetch(idSerie, language)).thenReturn(serieDetailDto);
 
         SerieDetailDto result = tvSerieService.getDetailsSerie(idSerie, language);
 
         assertEquals(serieDetailDto, result);
-        verify(tvSeriesFeignClient, times(1)).getDetailsSeries(idSerie, language);
+        verify(tvSeriesFeignClient, times(1)).getDetailsSeriesFetch(idSerie, language);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class GetDetailsSerieTest extends BaseSerieService {
         FeignException notFoundException = mock(FeignException.class);
         when(notFoundException.status()).thenReturn(404);
 
-        when(tvSeriesFeignClient.getDetailsSeries(idSerie, language)).thenThrow(notFoundException);
+        when(tvSeriesFeignClient.getDetailsSeriesFetch(idSerie, language)).thenThrow(notFoundException);
 
         MediaNotFoundException exception = assertThrows(MediaNotFoundException.class,
                 () -> tvSerieService.getDetailsSerie(idSerie, language));
@@ -60,7 +60,7 @@ public class GetDetailsSerieTest extends BaseSerieService {
         when(serverException.status()).thenReturn(500);
         when(serverException.getMessage()).thenReturn("Server error");
 
-        when(tvSeriesFeignClient.getDetailsSeries(idSerie, language)).thenThrow(serverException);
+        when(tvSeriesFeignClient.getDetailsSeriesFetch(idSerie, language)).thenThrow(serverException);
 
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> tvSerieService.getDetailsSerie(idSerie, language));

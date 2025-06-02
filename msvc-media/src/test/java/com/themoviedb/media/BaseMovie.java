@@ -1,13 +1,13 @@
-package com.themoviedb.media.controllers;
+package com.themoviedb.media;
 
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.MovieDetailDto;
-import com.themoviedb.media.dto.MovieDto;
-import com.themoviedb.media.dto.MovieListDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.movie.MovieDetailDto;
+import com.themoviedb.media.dto.movie.MovieDto;
+import com.themoviedb.media.dto.movie.MovieListDto;
 
 import java.util.List;
 
-public abstract class BaseMovieController {
+public abstract class BaseMovie {
 
     protected static MovieListDto getMovieList() {
 

@@ -1,6 +1,6 @@
 package com.themoviedb.media.service.serie;
 
-import com.themoviedb.media.dto.CreditsDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.BaseSerieService;
@@ -18,12 +18,12 @@ public class GetCreditsSerieTest extends BaseSerieService {
         String language = "es";
         CreditsDto creditsDto = getSerieCreditsDto();
 
-        when(tvSeriesFeignClient.getCreditsSeries(idSerie, language)).thenReturn(creditsDto);
+        when(tvSeriesFeignClient.getCreditsSeriesFetch(idSerie, language)).thenReturn(creditsDto);
 
-        CreditsDto response = tvSeriesFeignClient.getCreditsSeries(idSerie, language);
+        CreditsDto response = tvSeriesFeignClient.getCreditsSeriesFetch(idSerie, language);
 
         assertEquals(creditsDto, response);
-        verify(tvSeriesFeignClient, times(1)).getCreditsSeries(idSerie, language);
+        verify(tvSeriesFeignClient, times(1)).getCreditsSeriesFetch(idSerie, language);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class GetCreditsSerieTest extends BaseSerieService {
         FeignException notFoundException = mock(FeignException.class);
         when(notFoundException.status()).thenReturn(404);
 
-        when(tvSeriesFeignClient.getCreditsSeries(idSerie, language)).thenThrow(notFoundException);
+        when(tvSeriesFeignClient.getCreditsSeriesFetch(idSerie, language)).thenThrow(notFoundException);
 
         MediaNotFoundException exception = assertThrows(MediaNotFoundException.class,
                 () -> tvSerieService.getCreditsSerie(idSerie, language));
@@ -60,7 +60,7 @@ public class GetCreditsSerieTest extends BaseSerieService {
         when(serverException.status()).thenReturn(500);
         when(serverException.getMessage()).thenReturn("Server error");
 
-        when(tvSeriesFeignClient.getCreditsSeries(idSerie, language)).thenThrow(serverException);
+        when(tvSeriesFeignClient.getCreditsSeriesFetch(idSerie, language)).thenThrow(serverException);
 
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> tvSerieService.getCreditsSerie(idSerie, language));

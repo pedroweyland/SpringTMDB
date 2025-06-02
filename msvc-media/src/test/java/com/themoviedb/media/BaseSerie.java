@@ -1,13 +1,14 @@
-package com.themoviedb.media.controllers;
+package com.themoviedb.media;
 
-import com.themoviedb.media.dto.CreditsDto;
-import com.themoviedb.media.dto.SerieDetailDto;
-import com.themoviedb.media.dto.SerieDto;
-import com.themoviedb.media.dto.SerieListDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
+import com.themoviedb.media.dto.serie.SerieDetailDto;
+import com.themoviedb.media.dto.serie.SerieDto;
+import com.themoviedb.media.dto.serie.SerieListDto;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public abstract class BaseSerieController {
+public abstract class BaseSerie {
 
     protected static SerieListDto getSerieList() {
         return SerieListDto.builder()
@@ -25,7 +26,7 @@ public abstract class BaseSerieController {
                 .overview("test serie overview")
                 .popularity(10.0)
                 .backdropPath("test backdropPath")
-                .firstAirDate("test firstAirDate")
+                .firstAirDate(LocalDate.now())
                 .originalLanguage("test language")
                 .originalName("test serie")
                 .posterPath("/123456789.jpg")
@@ -45,7 +46,7 @@ public abstract class BaseSerieController {
                 .tagline("test tagline")
                 .type("test type")
                 .popularity(10.0)
-                .lastAirDate("test lastAirDate")
+                .lastAirDate(LocalDate.now())
                 .build();
     }
 

@@ -1,6 +1,6 @@
 package com.themoviedb.media.service.movie;
 
-import com.themoviedb.media.dto.CreditsDto;
+import com.themoviedb.media.dto.credits.CreditsDto;
 import com.themoviedb.media.exception.LanguagueNotFoundException;
 import com.themoviedb.media.exception.MediaNotFoundException;
 import com.themoviedb.media.service.BaseMovieService;
@@ -18,12 +18,12 @@ public class GetCreditsMovieTest extends BaseMovieService {
         String language = "es";
         CreditsDto creditsDto = getCreditsDto();
 
-        when(movieFeignClient.getCreditsMovie(idMovie, language)).thenReturn(creditsDto);
+        when(movieFeignClient.getCreditsMovieFetch(idMovie, language)).thenReturn(creditsDto);
 
         CreditsDto response = movieService.getCreditsMovie(idMovie, language);
 
         assertEquals(creditsDto, response);
-        verify(movieFeignClient, times(1)).getCreditsMovie(idMovie, language);
+        verify(movieFeignClient, times(1)).getCreditsMovieFetch(idMovie, language);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class GetCreditsMovieTest extends BaseMovieService {
         FeignException notFoundException = mock(FeignException.class);
         when(notFoundException.status()).thenReturn(404);
 
-        when(movieFeignClient.getCreditsMovie(idMovie, language)).thenThrow(notFoundException);
+        when(movieFeignClient.getCreditsMovieFetch(idMovie, language)).thenThrow(notFoundException);
 
         MediaNotFoundException exception = assertThrows(MediaNotFoundException.class,
                 () -> movieService.getCreditsMovie(idMovie, language));
@@ -60,7 +60,7 @@ public class GetCreditsMovieTest extends BaseMovieService {
         when(serverException.status()).thenReturn(500);
         when(serverException.getMessage()).thenReturn("Server error");
 
-        when(movieFeignClient.getCreditsMovie(idMovie, language)).thenThrow(serverException);
+        when(movieFeignClient.getCreditsMovieFetch(idMovie, language)).thenThrow(serverException);
 
         RuntimeException exception = assertThrows(RuntimeException.class,
                 () -> movieService.getCreditsMovie(idMovie, language));
