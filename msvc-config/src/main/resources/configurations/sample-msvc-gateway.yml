@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: msvc-gateway
-
-  config:
-    import: optional:configserver:http://localhost:8888
-
   cloud:
     gateway:
       discovery:
@@ -18,8 +14,14 @@ spring:
           uri: lb://msvc-media
           predicates:
             - Path=/api/v1/media/**
+        - id: users
+          uri: lb://msvc-auth
+          predicates:
+            - Path=/auth/**
 
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    org.springframework.web: DEBUG
+eureka:
+  client:
+    register-with-eureka: false
+
+jwt:
+  secret: (SECRET)

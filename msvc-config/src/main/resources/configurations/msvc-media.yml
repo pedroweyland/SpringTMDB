@@ -1,0 +1,18 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: msvc-media
+
+themoviedb:
+  api:
+    url: https://api.themoviedb.org/3
+    key: cd68bd22a5ce075f82c0564d2dd23808
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
