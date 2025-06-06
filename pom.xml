@@ -22,7 +22,7 @@
     <module>msvc-eureka</module>
     <module>msvc-config</module>
     <module>msvc-media</module>
-    <module>msvc-users</module>
+    <module>msvc-auth</module>
   </modules>
 
   <properties>
