@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomApiError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomResponseEntityExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/demo/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/demo/DemoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/java/com/themoviedb/authenticator/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-auth/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/java/com/themoviedb/config/MsvcConfigApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/java/com/themoviedb/config/ConfigServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/configurations/msvc-eureka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/eureka-server.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/configurations/msvc-media.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-media.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/configurations/sample-msvc-auth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/sample-msvc-auth.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/main/resources/configurations/sample-msvc-gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/sample-msvc-gateway.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-config/src/test/java/com/themoviedb/config/MsvcConfigApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/test/java/com/themoviedb/config/ConfigServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/src/main/java/com/themoviedb/eureka/MsvcEurekaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/java/com/themoviedb/eureka/EurekaServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-eureka/src/test/java/com/themoviedb/eureka/MsvcEurekaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/test/java/com/themoviedb/eureka/EurekaServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/themoviedb/gateway/MsvcGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/MsvcGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/themoviedb/gateway/config/RouteValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/config/RouteValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/themoviedb/gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/java/com/themoviedb/gateway/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-gateway/src/test/java/com/themoviedb/gateway/MsvcGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/test/java/com/themoviedb/gateway/MsvcGatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/MsvcMediaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/MsvcMediaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/client/MovieFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/client/MovieFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/client/PeopleFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/client/PeopleFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/client/TvSeriesFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/client/TvSeriesFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/client/config/FeignClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/client/config/FeignClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/BaseMediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/BaseMediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/IMediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/IMediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/PeopleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/TvSeriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/TvSeriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/handler/CustomApiError.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/handler/CustomApiError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/controllers/handler/TupResponseEntityExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/controllers/handler/ResponseEntityExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CastDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CastDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CreditsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CreditsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CrewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/credits/CrewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/GenreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/GenreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/ProductionCompaniesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/ProductionCompaniesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/ProductionCountriesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/ProductionCountriesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/SpokenLanguagesDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/SpokenLanguagesDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/movies/BelongsToCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/movies/BelongsToCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/CreatedByDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/CreatedByDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/LastEpisodeToAir.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/LastEpisodeToAir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/NetworkDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/NetworkDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/SeasonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/details/series/SeasonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/movie/MovieListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/KnowForDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/KnowForDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/PeopleListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/PeopleListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/PersonDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/PersonDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/PersonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/PersonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/BaseCreditsPeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/BaseCreditsPeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CastPeopleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CastPeopleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CreditsPeopleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CreditsPeopleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CrewPeopleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/people/credits/CrewPeopleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/dto/serie/SerieListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/exception/LanguagueNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/exception/LanguagueNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/exception/MediaNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/exception/MediaNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/exception/PageNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/exception/PageNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/exception/PersonNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/exception/PersonNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/service/IMediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/service/IMediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/service/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/service/PeopleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/service/TvSeriesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/service/TvSeriesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/java/com/themoviedb/media/service/utils/AbstractMediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/java/com/themoviedb/media/service/utils/AbstractMediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/BaseMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/BaseMovie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/BasePeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/BasePeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/BaseSerie.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/BaseSerie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/MsvcMediaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/MsvcMediaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/controllers/MovieControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/controllers/MovieControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/controllers/PeopleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/controllers/PeopleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/controllers/TvSerieControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/controllers/TvSerieControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/BaseMovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/BaseMovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/BasePeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/BasePeopleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/BaseSerieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/BaseSerieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetComingSoonMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetComingSoonMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetCreditsMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetCreditsMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetDetailsMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetDetailsMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetNowPlayingMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetNowPlayingMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetPopularMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetPopularMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetSearchMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetSearchMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetTopRatedMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/movie/GetTopRatedMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/people/GetCreditsPersonMovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/people/GetCreditsPersonMovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/people/GetCreditsPersonSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/people/GetCreditsPersonSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/people/GetPersonDetailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/people/GetPersonDetailTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/people/GetPopularPeopleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/people/GetPopularPeopleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetComingSoonSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetComingSoonSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetCreditsSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetCreditsSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetDetailsSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetDetailsSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetNowPlayingSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetNowPlayingSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetPopularSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetPopularSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetSearchSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetSearchSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetTopRatedSerieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/src/test/java/com/themoviedb/media/service/serie/GetTopRatedSerieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2yF6RGMx5Usj5hn8k5chQOxOY3x" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Auth.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Config.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Eureka.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Gateway.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Media.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;pepoweyland&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\weyla\OneDrive\Desktop\Proyecto TMDB\SpringTMDB\microservices" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Auth">
+    <configuration name="Auth" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.authenticator.MsvcAuthenticatorApplication" />
+      <module name="msvc-auth" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Config" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.config.ConfigServerApplication" />
+      <module name="config-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Eureka" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.eureka.EurekaServerApplication" />
+      <module name="eureka-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gateway" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.gateway.MsvcGatewayApplication" />
+      <module name="msvc-gateway" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Media" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.media.MsvcMediaApplication" />
+      <module name="msvc-media" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Auth" />
+      <item itemvalue="Application.Config" />
+      <item itemvalue="Application.Eureka" />
+      <item itemvalue="Application.Gateway" />
+      <item itemvalue="Application.Media" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="" />
+      <created>1749417965379</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749417965379</updated>
+    </task>
+    <servers />
+  </component>
+</project>

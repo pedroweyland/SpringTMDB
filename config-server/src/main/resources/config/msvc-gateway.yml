@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: media
+          uri: lb://msvc-media
+          predicates:
+            - Path=/api/v1/media/**
+        - id: users
+          uri: lb://msvc-auth
+          predicates:
+            - Path=/auth/**
+
+eureka:
+  client:
+    register-with-eureka: false
+
+jwt:
+  secret: u7bRpZTn+NfWzKJ7EfE8Fbw3Ko0N3uNBNsNzt1mQaK8=

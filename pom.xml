@@ -18,11 +18,9 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>msvc-gateway</module>
-    <module>msvc-eureka</module>
-    <module>msvc-config</module>
-    <module>msvc-media</module>
-    <module>msvc-auth</module>
+    <module>eureka-server</module>
+    <module>config-server</module>
+    <module>microservices</module>
   </modules>
 
   <properties>
