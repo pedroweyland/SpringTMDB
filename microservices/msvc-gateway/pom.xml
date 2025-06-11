@@ -65,6 +65,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Spring WebFlux -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webflux</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

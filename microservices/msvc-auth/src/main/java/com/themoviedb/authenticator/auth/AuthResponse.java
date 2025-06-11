@@ -1,5 +1,6 @@
 package com.themoviedb.authenticator.auth;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,5 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthResponse {
-    String token;
+
+    @JsonProperty("access_token")
+    String accessToken;
+
+    @JsonProperty("refresh_token")
+    String refreshToken;
 }

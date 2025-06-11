@@ -19,10 +19,6 @@ spring:
           predicates:
             - Path=/auth/**
 
-msvc:
-  auth:
-    url: http://localhost:9090
-
 eureka:
   client:
     register-with-eureka: false

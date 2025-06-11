@@ -22,5 +22,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
-jwt:
-  secret: u7bRpZTn+NfWzKJ7EfE8Fbw3Ko0N3uNBNsNzt1mQaK8=
+application:
+  security:
+    jwt:
+      secret: u7bRpZTn+NfWzKJ7EfE8Fbw3Ko0N3uNBNsNzt1mQaK8=
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # a week

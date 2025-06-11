@@ -1,5 +1,9 @@
 package com.themoviedb.authenticator.jwt;
 
+import com.themoviedb.authenticator.repository.token.Token;
+import com.themoviedb.authenticator.repository.token.TokenRepository;
+import com.themoviedb.authenticator.repository.user.User;
+import com.themoviedb.authenticator.repository.user.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +20,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -23,35 +28,51 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
+    private final UserRepository userRepository;
+    private final TokenRepository tokenRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        final String token = getTokenFromRequest(request);
-        final String username;
 
-        if (token == null) {
+        if (request.getServletPath().contains("/auth")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        username = jwtService.getUsernameFromToken(token);
+        final String jwtToken = getTokenFromRequest(request);
+        final String username = jwtService.getUsernameFromToken(jwtToken);
 
-        if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
-            if (jwtService.isTokenValid(token, userDetails)) {
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities());
-
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-                SecurityContextHolder.getContext().setAuthentication(authToken);
-            }
+        if (username == null && SecurityContextHolder.getContext().getAuthentication() != null) {
+            return;
         }
+
+        final Token token = tokenRepository.findByToken(jwtToken).orElse(null);
+
+        if (token == null || token.isExpired() == true || token.isRevoked() == true) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        final Optional<User> user = userRepository.findByUsername(userDetails.getUsername());
+
+        if (user.isEmpty()) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        if (jwtService.isTokenValid(jwtToken, userDetails)) {
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                    userDetails,
+                    null,
+                    userDetails.getAuthorities());
+
+            authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authToken);
+        }
+
         filterChain.doFilter(request, response);
     }
 

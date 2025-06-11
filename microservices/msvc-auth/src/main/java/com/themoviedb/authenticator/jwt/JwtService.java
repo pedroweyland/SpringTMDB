@@ -1,43 +1,53 @@
 package com.themoviedb.authenticator.jwt;
 
+import com.themoviedb.authenticator.repository.token.Token;
+import com.themoviedb.authenticator.repository.token.TokenRepository;
+import com.themoviedb.authenticator.repository.user.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
-    @Value("${jwt.secret}")
+    @Value("${application.security.jwt.secret}")
     private String SECRET_KEY;
+    @Value("${application.security.jwt.expiration}")
+    private long jwtExpiration;
+    @Value("${application.security.jwt.refresh-token.expiration}")
+    private long refreshExpiration;
 
-    @PostConstruct
-    public void init() {
-        System.out.println("✅ JwtService fue cargado correctamente con la SECRET: " + SECRET_KEY);
+    private final TokenRepository tokenRepository;
+
+    public String getToken(Map<String, Object> extraClaims, User user) {
+        return getToken(extraClaims, user, jwtExpiration);
     }
 
-    public String getToken(UserDetails user) {
-        return getToken(new HashMap<>(), user);
+    public String getRefreshToken(Map<String, Object> extraClaims, User user) {
+        return getToken(extraClaims, user, refreshExpiration);
     }
 
-    private String getToken(Map<String,Object> extraClaims, UserDetails user) {
+    private String getToken(Map<String,Object> extraClaims, User user, long expiration) {
         return Jwts
                 .builder()
+                .setId(user.getId().toString())
                 .setClaims(extraClaims)
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis()+1000*60*24))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -53,6 +63,12 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
+        Token jwtToken = tokenRepository.findByToken(token).orElse(null);
+
+        if (jwtToken == null || jwtToken.isExpired() || jwtToken.isRevoked()) {
+            return false;
+        }
+
         return (username.equals(userDetails.getUsername())&& !isTokenExpired(token));
     }
 
@@ -77,7 +93,7 @@ public class JwtService {
         return getClaim(token, Claims::getExpiration);
     }
 
-    private boolean isTokenExpired(String token)
+    public boolean isTokenExpired(String token)
     {
         return getExpiration(token).before(new Date());
     }
