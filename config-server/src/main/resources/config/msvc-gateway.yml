@@ -14,10 +14,14 @@ spring:
           uri: lb://msvc-media
           predicates:
             - Path=/api/v1/media/**
-        - id: users
+        - id: auth
           uri: lb://msvc-auth
           predicates:
             - Path=/auth/**
+        - id: user
+          uri: lb://msvc-auth
+          predicates:
+            - Path=/api/v1/user/**
 
 msvc:
   auth:

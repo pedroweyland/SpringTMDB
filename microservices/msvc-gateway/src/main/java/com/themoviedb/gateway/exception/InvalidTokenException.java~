@@ -1,0 +1,4 @@
+package com.themoviedb.gateway.exception;
+
+public class InvalidTokenException extends {
+}
