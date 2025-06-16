@@ -1,9 +1,11 @@
-package com.themoviedb.authenticator.auth;
+package com.themoviedb.authenticator.controllers;
 
-import com.themoviedb.authenticator.exception.UserAlreadyExistsException;
-import com.themoviedb.authenticator.exception.UserNotFoundException;
+import com.themoviedb.authenticator.model.response.AuthResponse;
+import com.themoviedb.authenticator.model.request.LoginRequest;
+import com.themoviedb.authenticator.model.request.RegisterRequest;
+import com.themoviedb.authenticator.model.exception.UserAlreadyExistsException;
+import com.themoviedb.authenticator.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

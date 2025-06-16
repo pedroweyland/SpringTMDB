@@ -1,4 +1,4 @@
-package com.themoviedb.users.auth;
+package com.themoviedb.authenticator.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

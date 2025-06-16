@@ -1,8 +1,8 @@
 package com.themoviedb.authenticator.config;
 
 import com.themoviedb.authenticator.jwt.JwtAuthenticationFilter;
-import com.themoviedb.authenticator.repository.token.Token;
-import com.themoviedb.authenticator.repository.token.TokenRepository;
+import com.themoviedb.authenticator.model.entity.Token;
+import com.themoviedb.authenticator.repository.TokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

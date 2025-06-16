@@ -1,7 +1,8 @@
-package com.themoviedb.authenticator.repository.token;
+package com.themoviedb.authenticator.repository;
 
 
-import com.themoviedb.authenticator.repository.user.User;
+import com.themoviedb.authenticator.model.entity.Token;
+import com.themoviedb.authenticator.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

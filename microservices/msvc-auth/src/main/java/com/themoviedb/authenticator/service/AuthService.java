@@ -1,16 +1,18 @@
-package com.themoviedb.authenticator.auth;
+package com.themoviedb.authenticator.service;
 
-import com.themoviedb.authenticator.exception.UserAlreadyExistsException;
+import com.themoviedb.authenticator.model.response.AuthResponse;
+import com.themoviedb.authenticator.model.request.LoginRequest;
+import com.themoviedb.authenticator.model.request.RegisterRequest;
+import com.themoviedb.authenticator.model.exception.UserAlreadyExistsException;
 import com.themoviedb.authenticator.jwt.JwtService;
-import com.themoviedb.authenticator.repository.token.Token;
-import com.themoviedb.authenticator.repository.token.TokenRepository;
-import com.themoviedb.authenticator.repository.user.Role;
-import com.themoviedb.authenticator.repository.user.User;
-import com.themoviedb.authenticator.repository.user.UserRepository;
+import com.themoviedb.authenticator.model.entity.Token;
+import com.themoviedb.authenticator.repository.TokenRepository;
+import com.themoviedb.authenticator.model.Role;
+import com.themoviedb.authenticator.model.entity.User;
+import com.themoviedb.authenticator.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -149,12 +151,10 @@ public class AuthService {
 
     public Boolean validateToken(String authHeader) {
 
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            throw new IllegalArgumentException("Token inválido o ausente");
-        }
         String token = authHeader.substring(7);
 
-        User user = userRepository.findByUsername(jwtService.getUsernameFromToken(token))
+        String username = jwtService.getUsernameFromToken(token);
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
         return jwtService.isTokenValid(token, user);

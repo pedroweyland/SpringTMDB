@@ -1,7 +1,6 @@
-package com.themoviedb.authenticator.auth.handler;
+package com.themoviedb.authenticator.controllers.handler;
 
-import com.themoviedb.authenticator.exception.UserAlreadyExistsException;
-import com.themoviedb.authenticator.exception.UserNotFoundException;
+import com.themoviedb.authenticator.model.exception.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -15,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {UserNotFoundException.class})
+    @ExceptionHandler(value = {UserNotFoundException.class, MediaNotFoundException.class})
     protected ResponseEntity<Object> handleMateriaNotFound(Exception ex, WebRequest request) {
         String exceptionMessage = ex.getMessage();
         CustomApiError error = new CustomApiError();
@@ -26,7 +25,10 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
         return handleExceptionInternal(ex, error, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
-    @ExceptionHandler(value = {IllegalArgumentException.class, RuntimeException.class, UserAlreadyExistsException.class})
+    @ExceptionHandler(value = {IllegalArgumentException.class, RuntimeException.class,
+            UserAlreadyExistsException.class, InvalidUserDataException.class,
+            MediaAlreadyExistInList.class
+    })
     protected ResponseEntity<Object> handleBadRequest(Exception ex, WebRequest request) {
         String exceptionMessage = ex.getMessage();
         CustomApiError error = new CustomApiError();
@@ -36,6 +38,18 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 
         return handleExceptionInternal(ex, error, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+
+    @ExceptionHandler(value = {InvalidTokenException.class})
+    protected ResponseEntity<Object> handleUnauthorizedRequest(Exception ex, WebRequest request) {
+        String exceptionMessage = ex.getMessage();
+        CustomApiError error = new CustomApiError();
+
+        error.setErrorCode(401);
+        error.setErrorMessage(exceptionMessage);
+
+        return handleExceptionInternal(ex, error, new HttpHeaders(), HttpStatus.UNAUTHORIZED, request);
+    }
+
 
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body, HttpHeaders headers, HttpStatusCode status, WebRequest request) {

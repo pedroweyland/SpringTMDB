@@ -1,4 +1,4 @@
-package com.themoviedb.authenticator.auth.handler;
+package com.themoviedb.authenticator.controllers.handler;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -1,14 +1,16 @@
 package com.themoviedb.authenticator.jwt;
 
-import com.themoviedb.authenticator.repository.token.Token;
-import com.themoviedb.authenticator.repository.token.TokenRepository;
-import com.themoviedb.authenticator.repository.user.User;
+import com.themoviedb.authenticator.model.entity.Token;
+import com.themoviedb.authenticator.model.exception.InvalidTokenException;
+import com.themoviedb.authenticator.model.exception.UserNotFoundException;
+import com.themoviedb.authenticator.repository.TokenRepository;
+import com.themoviedb.authenticator.model.entity.User;
+import com.themoviedb.authenticator.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,6 +33,7 @@ public class JwtService {
     private long refreshExpiration;
 
     private final TokenRepository tokenRepository;
+    private final UserRepository userRepository;
 
     public String getToken(Map<String, Object> extraClaims, User user) {
         return getToken(extraClaims, user, jwtExpiration);
@@ -40,7 +43,7 @@ public class JwtService {
         return getToken(extraClaims, user, refreshExpiration);
     }
 
-    private String getToken(Map<String,Object> extraClaims, User user, long expiration) {
+    private String getToken(Map<String, Object> extraClaims, User user, long expiration) {
         return Jwts
                 .builder()
                 .setId(user.getId().toString())
@@ -53,7 +56,7 @@ public class JwtService {
     }
 
     private Key getKey() {
-        byte[] keyBytes=Decoders.BASE64.decode(SECRET_KEY);
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -69,11 +72,33 @@ public class JwtService {
             return false;
         }
 
-        return (username.equals(userDetails.getUsername())&& !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
-    private Claims getAllClaims(String token)
-    {
+    public User getUserFromToken(String authHeader) throws InvalidTokenException, UserNotFoundException {
+        String token = extractToken(authHeader);
+        String username = getUsernameFromToken(token);
+
+        if (username == null) throw new InvalidTokenException("Token inválido - Username");
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("Usuario no encontrado - FindUsername"));
+
+        if (!isTokenValid(token, user)) throw new InvalidTokenException("Token inválido o expirado");
+
+        return user;
+    }
+
+    private String extractToken(String authHeader) throws InvalidTokenException {
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new InvalidTokenException("Token inválido o ausente");
+        }
+
+        return authHeader.substring(7);
+    }
+
+    private Claims getAllClaims(String token) {
         return Jwts
                 .parserBuilder()
                 .setSigningKey(getKey())
@@ -82,19 +107,16 @@ public class JwtService {
                 .getBody();
     }
 
-    public <T> T getClaim(String token, Function<Claims,T> claimsResolver)
-    {
+    public <T> T getClaim(String token, Function<Claims,T> claimsResolver) {
         final Claims claims = getAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
-    private Date getExpiration(String token)
-    {
+    private Date getExpiration(String token) {
         return getClaim(token, Claims::getExpiration);
     }
 
-    public boolean isTokenExpired(String token)
-    {
+    public boolean isTokenExpired(String token) {
         return getExpiration(token).before(new Date());
     }
 

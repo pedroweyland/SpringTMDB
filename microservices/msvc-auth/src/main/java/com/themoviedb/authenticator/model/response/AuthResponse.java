@@ -1,4 +1,4 @@
-package com.themoviedb.authenticator.auth;
+package com.themoviedb.authenticator.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,5 @@
-package com.themoviedb.authenticator.repository.token;
+package com.themoviedb.authenticator.model.entity;
 
-import com.themoviedb.authenticator.repository.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

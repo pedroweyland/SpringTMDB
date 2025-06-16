@@ -1,4 +1,4 @@
-package com.themoviedb.authenticator.auth;
+package com.themoviedb.authenticator.model.request;
 
 import lombok.*;
 

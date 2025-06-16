@@ -1,6 +1,6 @@
-package com.themoviedb.authenticator.repository.user;
+package com.themoviedb.authenticator.model.entity;
 
-import com.themoviedb.authenticator.repository.token.Token;
+import com.themoviedb.authenticator.model.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(
-        name="user",
+        name= "users",
         uniqueConstraints = {
         @UniqueConstraint(columnNames = {"username"}),
         @UniqueConstraint(columnNames = {"email"})
@@ -27,10 +27,9 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Basic
     @Column(nullable = false)
     String username;
 
@@ -40,8 +39,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     String password;
 
-    String lastname;
-    String firstname;
+    String lastName;
+    String firstName;
     String country;
     String phone;
     String address;
@@ -52,6 +51,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Token> tokens;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<UserMedia> userMediaList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

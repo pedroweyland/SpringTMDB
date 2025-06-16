@@ -1,9 +1,9 @@
 package com.themoviedb.authenticator.jwt;
 
-import com.themoviedb.authenticator.repository.token.Token;
-import com.themoviedb.authenticator.repository.token.TokenRepository;
-import com.themoviedb.authenticator.repository.user.User;
-import com.themoviedb.authenticator.repository.user.UserRepository;
+import com.themoviedb.authenticator.model.entity.Token;
+import com.themoviedb.authenticator.repository.TokenRepository;
+import com.themoviedb.authenticator.model.entity.User;
+import com.themoviedb.authenticator.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

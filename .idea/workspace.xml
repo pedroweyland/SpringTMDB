@@ -5,27 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/TokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/config/WebClientConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-gateway.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/RegisterRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomApiError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomResponseEntityExceptionHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserNotFoundException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/filter/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-media/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-media/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/TokenRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/UserRepository.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -63,18 +65,31 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;pepoweyland&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/weyla/OneDrive/Desktop/Proyecto TMDB/SpringTMDB/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/handler&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.themoviedb.authenticator.repository" />
+      <recent name="com.themoviedb.authenticator.model.response" />
+      <recent name="com.themoviedb.authenticator.service" />
+      <recent name="com.themoviedb.authenticator.lists" />
+      <recent name="com.themoviedb.authenticator.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\weyla\OneDrive\Desktop\Proyecto TMDB\SpringTMDB\microservices\msvc-gateway\src\main\java\com\themoviedb\gateway\handler" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\weyla\OneDrive\Desktop\Proyecto TMDB\SpringTMDB\microservices" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Media">
+  <component name="RunManager" selected="Application.Auth">
     <configuration name="Auth" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -121,11 +136,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Gateway" />
-      <item itemvalue="Application.Media" />
       <item itemvalue="Application.Auth" />
       <item itemvalue="Application.Config" />
       <item itemvalue="Application.Eureka" />
+      <item itemvalue="Application.Gateway" />
+      <item itemvalue="Application.Media" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
