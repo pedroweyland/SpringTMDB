@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/utils/ListHelpers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/MsvcAuthenticatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomApiError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/auth/handler/CustomResponseEntityExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/exception/UserNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/ListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/ListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/token/TokenRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/user/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/dto/MediaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/dto/MediaDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/ListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/ListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/utils/ListUtils.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

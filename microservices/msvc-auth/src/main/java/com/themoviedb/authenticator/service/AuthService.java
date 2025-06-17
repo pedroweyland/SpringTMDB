@@ -17,7 +17,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -26,11 +25,9 @@ import java.util.Optional;
 public class AuthService {
 
     private final UserRepository userRepository;
-    private final TokenRepository tokenRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
-
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(
@@ -45,25 +42,13 @@ public class AuthService {
         String token = jwtService.getToken(Map.of("email", user.getEmail()), user);
         String refreshToken = jwtService.getRefreshToken(Map.of("email", user.getEmail()), user);
 
-        revokeAllUserTokens(user);
-        saveUserToken(user, token);
+        jwtService.revokeAllUserTokens(user);
+        jwtService.saveUserToken(user, token);
 
         return AuthResponse.builder()
                 .accessToken(token)
                 .refreshToken(refreshToken)
                 .build();
-    }
-
-    private void revokeAllUserTokens(User user) {
-        final List<Token> validUserTokens = tokenRepository.findAllValidTokensByUser(user);
-
-        if (!validUserTokens.isEmpty()) {
-            for (final Token token : validUserTokens) {
-                token.setExpired(true);
-                token.setRevoked(true);
-            }
-            tokenRepository.saveAll(validUserTokens);
-        }
     }
 
     public AuthResponse register(RegisterRequest request) throws UserAlreadyExistsException {
@@ -82,40 +67,12 @@ public class AuthService {
         String token = jwtService.getToken(Map.of("email", user.getEmail()), user);
         String refreshToken = jwtService.getRefreshToken(Map.of("email", user.getEmail()), user);
         
-        saveUserToken(user, token);
+        jwtService.saveUserToken(user, token);
 
         return AuthResponse.builder()
                 .accessToken(token)
                 .refreshToken(refreshToken)
                 .build();
-    }
-
-    private void validateUserExists(String username, String email) throws UserAlreadyExistsException {
-        Optional<User> existingUser = userRepository.findByUsernameOrEmail(
-                username, email);
-
-        if (existingUser.isPresent()) {
-            User user = existingUser.get();
-
-            if (user.getUsername().equals(username)) {
-                throw new UserAlreadyExistsException("Username already exists");
-            } else {
-                throw new UserAlreadyExistsException("Email already exists");
-            }
-        }
-    }
-
-    private void saveUserToken(User user, String jwtToken) {
-        Token token = Token.builder()
-                .user(user)
-                .token(jwtToken)
-                .tokenType(Token.TokenType.BEARER)
-                .expired(false)
-                .revoked(false)
-                .build();
-
-        tokenRepository.save(token);
-
     }
 
     public AuthResponse refreshToken(String authHeader) {
@@ -139,8 +96,8 @@ public class AuthService {
 
         final String accessToken = jwtService.getToken(Map.of("email", user.getEmail()), user);
 
-        revokeAllUserTokens(user);
-        saveUserToken(user, accessToken);
+        jwtService.revokeAllUserTokens(user);
+        jwtService.saveUserToken(user, accessToken);
 
         return AuthResponse.builder()
                 .accessToken(accessToken)
@@ -158,5 +115,20 @@ public class AuthService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
         return jwtService.isTokenValid(token, user);
+    }
+
+    private void validateUserExists(String username, String email) throws UserAlreadyExistsException {
+        Optional<User> existingUser = userRepository.findByUsernameOrEmail(
+                username, email);
+
+        if (existingUser.isPresent()) {
+            User user = existingUser.get();
+
+            if (user.getUsername().equals(username)) {
+                throw new UserAlreadyExistsException("Username already exists");
+            } else {
+                throw new UserAlreadyExistsException("Email already exists");
+            }
+        }
     }
 }

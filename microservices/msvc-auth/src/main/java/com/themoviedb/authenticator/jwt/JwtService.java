@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -77,7 +78,7 @@ public class JwtService {
 
     public User getUserFromToken(String authHeader) throws InvalidTokenException, UserNotFoundException {
         String token = extractToken(authHeader);
-        String username = getUsernameFromToken(token);
+        final String username = getUsernameFromToken(token);
 
         if (username == null) throw new InvalidTokenException("Token inválido - Username");
 
@@ -87,6 +88,30 @@ public class JwtService {
         if (!isTokenValid(token, user)) throw new InvalidTokenException("Token inválido o expirado");
 
         return user;
+    }
+
+    public void revokeAllUserTokens(User user) {
+        final List<Token> validUserTokens = tokenRepository.findAllValidTokensByUser(user);
+
+        if (!validUserTokens.isEmpty()) {
+            for (final Token token : validUserTokens) {
+                token.setExpired(true);
+                token.setRevoked(true);
+            }
+            tokenRepository.saveAll(validUserTokens);
+        }
+    }
+
+    public void saveUserToken(User user, String jwtToken) {
+        Token token = Token.builder()
+                .user(user)
+                .token(jwtToken)
+                .tokenType(Token.TokenType.BEARER)
+                .expired(false)
+                .revoked(false)
+                .build();
+
+        tokenRepository.save(token);
     }
 
     private String extractToken(String authHeader) throws InvalidTokenException {

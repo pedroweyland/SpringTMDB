@@ -35,4 +35,5 @@ public class MediaDto {
 
     @JsonProperty("vote_average")
     private Double voteAverage;
+
 }
