@@ -1,5 +1,6 @@
 package com.themoviedb.authenticator.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.themoviedb.authenticator.model.MediaType;
@@ -17,16 +18,18 @@ import java.util.Date;
 public class MediaDto {
 
     private Integer id;
+
+    @JsonAlias({"title", "name"})
     private String title;
     private String overview;
 
     @JsonProperty("media_type")
     private MediaType mediaType;
 
-    @JsonProperty("original_title")
+    @JsonAlias({"original_title", "original_name"})
     private String originalTitle;
 
-    @JsonProperty("release_date")
+    @JsonAlias({"release_date", "first_air_date"})
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date releaseDate;
 

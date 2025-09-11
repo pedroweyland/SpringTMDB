@@ -1,6 +1,7 @@
 package com.themoviedb.authenticator.repository;
 
 import com.themoviedb.authenticator.model.ListType;
+import com.themoviedb.authenticator.model.MediaType;
 import com.themoviedb.authenticator.model.entity.Media;
 import com.themoviedb.authenticator.model.entity.User;
 import feign.Param;
@@ -12,7 +13,10 @@ import java.util.Optional;
 
 public interface MediaRepository extends JpaRepository<Media, Integer> {
 
-    Optional<Media> findByIdMedia(Integer idMedia);
+    Optional<Media> findByIdMediaApi(Integer idMediaApi);
+
+    Optional<Media> findByIdMediaApiAndMediaType(Integer idMediaApi, MediaType mediaType);
+
 
     @Query("""
        SELECT m FROM Media m

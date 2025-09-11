@@ -9,6 +9,7 @@ import com.themoviedb.authenticator.repository.UserRepository;
 import com.themoviedb.authenticator.model.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -41,11 +42,11 @@ public class UserService {
     private User validateUserDto(UserDto dto, User user) throws InvalidUserDataException {
 
         // Valido si no estan vacios y seteo al usuario real
-        if (dto.getFirstName() != null) user.setFirstName(dto.getFirstName());
-        if (dto.getLastName() != null) user.setLastName(dto.getLastName());
-        if (dto.getCountry() != null) user.setCountry(dto.getCountry());
-        if (dto.getPhone() != null) user.setPhone(dto.getPhone());
-        if (dto.getAddress() != null) user.setAddress(dto.getAddress());
+        if (StringUtils.hasText(dto.getFirstName())) user.setFirstName(dto.getFirstName());
+        if (StringUtils.hasText(dto.getLastName())) user.setLastName(dto.getLastName());
+        if (StringUtils.hasText(dto.getCountry())) user.setCountry(dto.getCountry());
+        if (StringUtils.hasText(dto.getPhone())) user.setPhone(dto.getPhone());
+        if (StringUtils.hasText(dto.getAddress())) user.setAddress(dto.getAddress());
 
         return user;
     }

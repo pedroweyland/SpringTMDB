@@ -24,9 +24,8 @@ public class ListHelpers {
                 .toList();
     }
 
-    public Media getMedia(String authHeader, Integer idMediaApi, String strMediaType) throws MediaNotFoundException {
+    public Media getMedia(String authHeader, Integer idMediaApi, MediaType mediatype) throws MediaNotFoundException {
         try {
-            MediaType mediatype = MediaType.fromString(strMediaType);
             MediaDto mediaDto;
 
             switch (mediatype) {
@@ -41,9 +40,10 @@ public class ListHelpers {
                 default:
                     throw new IllegalArgumentException("Invalid media type: " + mediatype);
             }
-
             Media media = mediaDtoToEntity(mediaDto, mediatype);
-
+            System.out.println(mediaDto);
+            System.out.println("-----");
+            System.out.println(media);
             return media;
         } catch (FeignException e) {
             if (e.status() == 404) {
@@ -56,19 +56,20 @@ public class ListHelpers {
 
     public MediaDto mediaToDto(Media media) {
         return MediaDto.builder()
-                .id(media.getIdMedia())
+                .id(media.getIdMediaApi())
                 .title(media.getTitle())
                 .overview(media.getOverview())
-                .posterPath(media.getPosterPath())
                 .mediaType(media.getMediaType())
+                .originalTitle(media.getOriginalTitle())
                 .releaseDate(media.getReleaseDate())
+                .posterPath(media.getPosterPath())
                 .voteAverage(media.getVoteAverage())
                 .build();
     }
 
     public Media mediaDtoToEntity(MediaDto mediaDto, MediaType mediaType) {
         return Media.builder()
-                .idMedia(mediaDto.getId())
+                .idMediaApi(mediaDto.getId())
                 .title(mediaDto.getTitle())
                 .overview(mediaDto.getOverview())
                 .mediaType(mediaType)

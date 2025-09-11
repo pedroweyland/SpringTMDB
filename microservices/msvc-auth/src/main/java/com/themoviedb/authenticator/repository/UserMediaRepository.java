@@ -1,6 +1,7 @@
 package com.themoviedb.authenticator.repository;
 
 import com.themoviedb.authenticator.model.ListType;
+import com.themoviedb.authenticator.model.MediaType;
 import com.themoviedb.authenticator.model.entity.Media;
 import com.themoviedb.authenticator.model.entity.User;
 import com.themoviedb.authenticator.model.entity.UserMedia;

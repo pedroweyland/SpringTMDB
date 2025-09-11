@@ -1,5 +1,7 @@
 package com.themoviedb.authenticator.controllers;
 
+import com.themoviedb.authenticator.controllers.validator.RequestValidator;
+import com.themoviedb.authenticator.model.exception.InvalidUserDataException;
 import com.themoviedb.authenticator.model.response.AuthResponse;
 import com.themoviedb.authenticator.model.request.LoginRequest;
 import com.themoviedb.authenticator.model.request.RegisterRequest;
@@ -18,12 +20,14 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping(value = "login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) throws InvalidUserDataException {
+        RequestValidator.validateLoginRequest(request);
         return ResponseEntity.ok(authService.login(request));
     }
 
     @PostMapping(value = "register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) throws UserAlreadyExistsException {
+    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) throws UserAlreadyExistsException, InvalidUserDataException {
+        RequestValidator.validateRegisterRequest(request);
         return ResponseEntity.ok(authService.register(request));
     }
 

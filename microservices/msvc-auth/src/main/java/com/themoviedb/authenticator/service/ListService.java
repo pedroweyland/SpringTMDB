@@ -35,13 +35,13 @@ public class ListService {
             throws UserNotFoundException, InvalidTokenException, MediaAlreadyExistInList, MediaNotFoundException {
 
         final Integer  idMediaApi = listRequest.getIdMediaApi();
-        final String mediaType = listRequest.getMediaType();
+        final MediaType mediaType = MediaType.fromString(listRequest.getMediaType());
 
         // Obtengo el usuario mediante el token (Aca mismo se valida el token)
         User user = jwtService.getUserFromToken(authHeader);
 
         // Obtengo la entidad Media con el id del request
-        Media media = mediaRepository.findByIdMedia(idMediaApi)
+        Media media = mediaRepository.findByIdMediaApiAndMediaType(idMediaApi, mediaType)
                 .orElse(null);
 
         // Si la media no existe la creo
@@ -83,18 +83,19 @@ public class ListService {
 
     public CustomResponse<MediaDto> deleteInList(String authHeader, ListRequest listRequest, ListType listType)
             throws MediaNotFoundException, UserNotFoundException, InvalidTokenException {
-        MediaType mediaType = MediaType.fromString(listRequest.getMediaType());
+        final Integer idMediaApi = listRequest.getIdMediaApi();
+        final MediaType mediaType = MediaType.fromString(listRequest.getMediaType());
 
         // Validar token y obtener usuario
         User user = jwtService.getUserFromToken(authHeader);
 
         // Buscar media por su ID externo (idMediaApi)
-        Media media = mediaRepository.findByIdMedia(listRequest.getIdMediaApi())
-                .orElseThrow(() -> new MediaNotFoundException("Media not found: " + listRequest.getIdMediaApi()));
+        Media media = mediaRepository.findByIdMediaApiAndMediaType(idMediaApi, mediaType)
+                .orElseThrow(() -> new MediaNotFoundException("Media not found: " + idMediaApi));
 
-        if (media.getMediaType() != mediaType) {
-            throw new MediaNotFoundException("Media not found: " + listRequest.getIdMediaApi());
-        }
+        //if (media.getMediaType() != mediaType) {
+        //    throw new MediaNotFoundException("Media not found: " + idMediaApi);
+        //}
 
         // Buscar la relación UserMedia (media en la lista del usuario)
         Optional<UserMedia> userMediaOptional = userMediaRepository.findByUserAndMediaAndListType(user, media, listType);

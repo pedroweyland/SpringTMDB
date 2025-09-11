@@ -1,10 +1,8 @@
 package com.themoviedb.authenticator.controllers;
 
+import com.themoviedb.authenticator.controllers.validator.RequestValidator;
 import com.themoviedb.authenticator.model.ListType;
-import com.themoviedb.authenticator.model.exception.InvalidTokenException;
-import com.themoviedb.authenticator.model.exception.MediaAlreadyExistInList;
-import com.themoviedb.authenticator.model.exception.MediaNotFoundException;
-import com.themoviedb.authenticator.model.exception.UserNotFoundException;
+import com.themoviedb.authenticator.model.exception.*;
 import com.themoviedb.authenticator.model.request.ListRequest;
 import com.themoviedb.authenticator.model.response.CustomResponse;
 import com.themoviedb.authenticator.service.ListService;
@@ -23,7 +21,8 @@ public class ListController {
     @PostMapping(value = "favorite")
     public ResponseEntity<CustomResponse> postFavoriteList(
             @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest)
-            throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, MediaAlreadyExistInList {
+            throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, MediaAlreadyExistInList, InvalidUserDataException {
+        RequestValidator.validateListRequest(listRequest);
         return ResponseEntity.ok(listService.postInList(authHeader, listRequest, ListType.FAVORITE));
     }
 
@@ -35,14 +34,16 @@ public class ListController {
 
     @DeleteMapping(value = "favorite")
     public ResponseEntity<CustomResponse> deleteFavoriteList(
-            @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest) throws UserNotFoundException, InvalidTokenException, MediaNotFoundException {
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest) throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, InvalidUserDataException {
+        RequestValidator.validateListRequest(listRequest);
         return ResponseEntity.ok(listService.deleteInList(authHeader, listRequest, ListType.FAVORITE));
     }
 
     @PostMapping(value = "watchlist")
     public ResponseEntity<CustomResponse> postWatchList(
             @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest)
-            throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, MediaAlreadyExistInList {
+            throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, MediaAlreadyExistInList, InvalidUserDataException {
+        RequestValidator.validateListRequest(listRequest);
         return ResponseEntity.ok(listService.postInList(authHeader, listRequest, ListType.WATCHLIST));
     }
 
@@ -55,7 +56,8 @@ public class ListController {
 
     @DeleteMapping(value = "watchlist")
     public ResponseEntity<CustomResponse> deleteWatchList(
-            @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest) throws UserNotFoundException, InvalidTokenException, MediaNotFoundException {
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader, @RequestBody ListRequest listRequest) throws UserNotFoundException, InvalidTokenException, MediaNotFoundException, InvalidUserDataException {
+        RequestValidator.validateListRequest(listRequest);
         return ResponseEntity.ok(listService.deleteInList(authHeader, listRequest, ListType.WATCHLIST));
     }
 

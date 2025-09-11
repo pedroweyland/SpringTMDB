@@ -24,15 +24,14 @@ public class Media {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true)
-    private Integer idMedia;
-
+    private Integer idMediaApi;
     private String title;
 
     @Column(columnDefinition = "TEXT")
     private String overview;
 
     @JsonProperty("media_type")
+    @Enumerated(EnumType.STRING)
     private MediaType mediaType;
 
     @JsonProperty("original_title")

@@ -5,8 +5,6 @@ import com.themoviedb.authenticator.model.request.LoginRequest;
 import com.themoviedb.authenticator.model.request.RegisterRequest;
 import com.themoviedb.authenticator.model.exception.UserAlreadyExistsException;
 import com.themoviedb.authenticator.jwt.JwtService;
-import com.themoviedb.authenticator.model.entity.Token;
-import com.themoviedb.authenticator.repository.TokenRepository;
 import com.themoviedb.authenticator.model.Role;
 import com.themoviedb.authenticator.model.entity.User;
 import com.themoviedb.authenticator.repository.UserRepository;
