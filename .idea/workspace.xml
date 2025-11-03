@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/msvc-auth.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/sample-msvc-auth.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/sample-msvc-gateway.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +83,12 @@
     <configuration name="Auth" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="JWT_SECRET" value="u7bRpZTn+NfWzKJ7EfE8Fbw3Ko0N3uNBNsNzt1mQaK8\=" />
+        <env name="PASSWORD_DB" value="u$ig5Cwfs*iZPB27VYpw" />
+        <env name="URL_DB" value="jdbc:mysql://localhost:3306/themoviedb" />
+        <env name="USERNAME_DB" value="root" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.authenticator.MsvcAuthenticatorApplication" />
       <module name="msvc-auth" />
       <method v="2">
@@ -90,6 +98,9 @@
     <configuration name="Config" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="URL_DB" value="jdbc:mysql://localhost:3306/themoviedb" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.config.ConfigServerApplication" />
       <module name="config-server" />
       <method v="2">
