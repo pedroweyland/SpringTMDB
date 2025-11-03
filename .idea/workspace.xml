@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f900ebad-6f5a-4a05-91ec-810d0fe34dc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/validator/RequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/test/java/com/themoviedb/authenticator/service/BaseAuthServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/test/java/com/themoviedb/authenticator/service/auth/LoginTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/test/java/com/themoviedb/authenticator/service/auth/RegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/ListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/controllers/ListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/dto/MediaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/dto/MediaDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/entity/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/entity/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/model/request/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/MediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/MediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/UserMediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/repository/UserMediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/ListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/ListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/utils/ListHelpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/service/utils/ListHelpers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/msvc-auth/src/main/java/com/themoviedb/authenticator/jwt/JwtAuthenticationFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,24 +39,27 @@
   &quot;keyToString&quot;: {
     &quot;Application.Auth.executor&quot;: &quot;Run&quot;,
     &quot;Application.Config.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.Eureka.executor&quot;: &quot;Run&quot;,
     &quot;Application.Gateway.executor&quot;: &quot;Run&quot;,
     &quot;Application.Media.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConfigServerApplicationTests.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.LoginTest.loginTestBadCredentials.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.LoginTest.loginTestSuccess.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.LoginTest.loginTestUserNotFound.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;pepoweyland&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/weyla/OneDrive/Desktop/Proyecto TMDB/SpringTMDB/microservices/msvc-gateway/src/main/java/com/themoviedb/gateway/handler&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/weyla/OneDrive/Desktop/ProyectoTMDB/SpringTMDB&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -90,7 +79,7 @@
   </component>
   <component name="RunManager" selected="Compound.All microservices">
     <configuration name="Auth" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.authenticator.MsvcAuthenticatorApplication" />
       <module name="msvc-auth" />
@@ -99,7 +88,7 @@
       </method>
     </configuration>
     <configuration name="Config" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.config.ConfigServerApplication" />
       <module name="config-server" />
@@ -108,7 +97,7 @@
       </method>
     </configuration>
     <configuration name="Eureka" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.eureka.EurekaServerApplication" />
       <module name="eureka-server" />
@@ -117,7 +106,7 @@
       </method>
     </configuration>
     <configuration name="Gateway" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.gateway.MsvcGatewayApplication" />
       <module name="msvc-gateway" />
@@ -126,7 +115,7 @@
       </method>
     </configuration>
     <configuration name="Media" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/ms-21.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.themoviedb.media.MsvcMediaApplication" />
       <module name="msvc-media" />
@@ -139,6 +128,21 @@
       <toRun name="Gateway" type="Application" />
       <toRun name="Media" type="Application" />
       <method v="2" />
+    </configuration>
+    <configuration name="ConfigServerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="config-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.themoviedb.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.themoviedb.config" />
+      <option name="MAIN_CLASS_NAME" value="com.themoviedb.config.ConfigServerApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="LoginTest.loginTestBadCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="msvc-auth" />
@@ -179,11 +183,13 @@
       <item itemvalue="Application.Gateway" />
       <item itemvalue="Application.Media" />
       <item itemvalue="Compound.All microservices" />
+      <item itemvalue="JUnit.ConfigServerApplicationTests" />
       <item itemvalue="JUnit.LoginTest.loginTestBadCredentials" />
       <item itemvalue="JUnit.LoginTest.loginTestSuccess" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConfigServerApplicationTests" />
         <item itemvalue="JUnit.LoginTest.loginTestBadCredentials" />
         <item itemvalue="JUnit.LoginTest.loginTestSuccess" />
       </list>
@@ -199,5 +205,19 @@
       <updated>1749417965379</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
 </project>

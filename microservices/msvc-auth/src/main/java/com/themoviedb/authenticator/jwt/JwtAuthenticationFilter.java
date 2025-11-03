@@ -55,6 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
+
         final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         final Optional<User> user = userRepository.findByUsername(userDetails.getUsername());
 
